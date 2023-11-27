@@ -23,7 +23,20 @@
     margin: 0;
     height: auto;
 }
-/* grid using flex layout */
+
+/* using grid layout */
+.grid.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(var(--columns, 1), 1fr);
+    grid-template-rows: auto;
+    column-gap: var(--column-gap, 0);
+    row-gap: var(--row-gap, 0);
+    justify-content: stretch;
+}
+.grid.grid-layout > * {
+}
+
+/* using flex layout */
 .grid.flex-layout {
     display: flex;
     flex-direction: row;
@@ -37,80 +50,61 @@
 .grid.flex-layout > * {
     flex: 0 1 calc((100% - (var(--columns, 1) - 1) * var(--column-gap, 0)) / var(--columns, 1));
 }
-/* grid using grid layout */
-.grid.grid-layout {
-    display: grid;
-    grid-template-columns: repeat(var(--columns, 1), 1fr);
-    grid-template-rows: auto;
-    column-gap: var(--column-gap, 0);
-    row-gap: var(--row-gap, 0);
-    justify-content: stretch;
-}
-.grid.grid-layout > * {
-}
-/* grid using inline-block */
+
+/* using inline-block */
 .grid:not(.flex-layout):not(.grid-layout) > * {
     display: inline-block;
     vertical-align: top;
     width: calc((100% - (var(--columns, 1) - 1) * var(--column-gap, 0)) / var(--columns, 1));
-    --is2n: 0;
-    --is3n: 0;
-    --is4n: 0;
-    --is5n: 0;
-    --is6n: 0;
-    --is7n: 0;
-    --is8n: 0;
-    --is9n: 0;
-    --is10n: 0;
-    --is11n: 0;
-    --is12n: 0;
-    --is13n: 0;
-    --is14n: 0;
-    --is15n: 0;
-    --hor-gap: calc(clamp(0, var(--columns, 1) - 1, 1) * var(--column-gap, 0));
     margin-bottom: var(--row-gap, 0);
-    margin-right: calc((1 - var(--is2n) - var(--is3n) - var(--is4n) - var(--is5n) - var(--is6n) - var(--is7n) - var(--is8n) - var(--is9n) - var(--is10n) - var(--is11n) - var(--is12n) - var(--is13n) - var(--is14n) - var(--is15n)) * var(--hor-gap));
 }
 /* handle automatically up to 15 items per row */
+.grid:not(.flex-layout):not(.grid-layout) > * {
+    --g-is1n: calc(1 - abs(clamp(-1, var(--columns, 1) - 1, 1)));
+}
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(2n) {
-    --is2n: calc(1 - abs(clamp(-1, var(--columns, 1) - 2, 1)));
+    --g-is2n: calc(1 - abs(clamp(-1, var(--columns, 1) - 2, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(3n) {
-    --is3n: calc(1 - abs(clamp(-1, var(--columns, 1) - 3, 1)));
+    --g-is3n: calc(1 - abs(clamp(-1, var(--columns, 1) - 3, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(4n) {
-    --is4n: calc(1 - abs(clamp(-1, var(--columns, 1) - 4, 1)));
+    --g-is4n: calc(1 - abs(clamp(-1, var(--columns, 1) - 4, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(5n) {
-    --is5n: calc(1 - abs(clamp(-1, var(--columns, 1) - 5, 1)));
+    --g-is5n: calc(1 - abs(clamp(-1, var(--columns, 1) - 5, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(6n) {
-    --is6n: calc(1 - abs(clamp(-1, var(--columns, 1) - 6, 1)));
+    --g-is6n: calc(1 - abs(clamp(-1, var(--columns, 1) - 6, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(7n) {
-    --is7n: calc(1 - abs(clamp(-1, var(--columns, 1) - 7, 1)));
+    --g-is7n: calc(1 - abs(clamp(-1, var(--columns, 1) - 7, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(8n) {
-    --is8n: calc(1 - abs(clamp(-1, var(--columns, 1) - 8, 1)));
+    --g-is8n: calc(1 - abs(clamp(-1, var(--columns, 1) - 8, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(9n) {
-    --is9n: calc(1 - abs(clamp(-1, var(--columns, 1) - 9, 1)));
+    --g-is9n: calc(1 - abs(clamp(-1, var(--columns, 1) - 9, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(10n) {
-    --is10n: calc(1 - abs(clamp(-1, var(--columns, 1) - 10, 1)));
+    --g-is10n: calc(1 - abs(clamp(-1, var(--columns, 1) - 10, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(11n) {
-    --is11n: calc(1 - abs(clamp(-1, var(--columns, 1) - 11, 1)));
+    --g-is11n: calc(1 - abs(clamp(-1, var(--columns, 1) - 11, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(12n) {
-    --is12n: calc(1 - abs(clamp(-1, var(--columns, 1) - 12, 1)));
+    --g-is12n: calc(1 - abs(clamp(-1, var(--columns, 1) - 12, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(13n) {
-    --is13n: calc(1 - abs(clamp(-1, var(--columns, 1) - 13, 1)));
+    --g-is13n: calc(1 - abs(clamp(-1, var(--columns, 1) - 13, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(14n) {
-    --is14n: calc(1 - abs(clamp(-1, var(--columns, 1) - 14, 1)));
+    --g-is14n: calc(1 - abs(clamp(-1, var(--columns, 1) - 14, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(15n) {
-    --is15n: calc(1 - abs(clamp(-1, var(--columns, 1) - 15, 1)));
+    --g-is15n: calc(1 - abs(clamp(-1, var(--columns, 1) - 15, 1)));
+}
+.grid:not(.flex-layout):not(.grid-layout) > * {
+    --g-is-not-on-edge: calc(1 - min(1, calc(var(--g-is1n, 0) + var(--g-is2n, 0) + var(--g-is3n, 0) + var(--g-is4n, 0) + var(--g-is5n, 0) + var(--g-is6n, 0) + var(--g-is7n, 0) + var(--g-is8n, 0) + var(--g-is9n, 0) + var(--g-is10n, 0) + var(--g-is11n, 0) + var(--g-is12n, 0) + var(--g-is13n, 0) + var(--g-is14n, 0) + var(--g-is15n, 0))));
+    margin-right: calc(var(--g-is-not-on-edge) * var(--column-gap, 0));
 }
