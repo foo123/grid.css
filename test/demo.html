@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="../src/grid.css" />
+<style type="text/css">
+body {
+    background: #fff;
+    color: #555;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.grid {
+    border: 1px solid #ccc;
+}
+.grid > li {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 20px;
+    font-weight: 900;
+    border: 1px solid #ddd;
+}
+.grid {
+    --column-gap: 10px;
+    --row-gap: 20px;
+    --columns: 5;
+}
+@media (max-width: 1400px) {
+.grid {
+    --columns: 4;
+}
+}
+@media (max-width: 900px) {
+.grid {
+    --columns: 3;
+}
+}
+@media (max-width: 600px) {
+.grid {
+    --columns: 2;
+}
+}
+@media (max-width: 400px) {
+.grid {
+    --columns: 1;
+}
+}
+</style>
+<title>grid.css test demo</title>
+</head>
+<body>
+<h1>grid.css demo</h1>
+
+<ul class="grid">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+<li>11</li>
+</ul>
+
+<ul class="grid flex">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+<li>11</li>
+</ul>
+</body>
+</html>

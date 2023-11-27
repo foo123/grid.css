@@ -1,0 +1,56 @@
+/* https://github.com/foo123/grid.css */
+.grid {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    list-style-type: none !important;
+    font-size: 0 !important;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    height: auto;
+    --columns: 4;
+    --column-gap: 0;
+    --row-gap: 0;
+}
+.grid > * {
+    position: relative;
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin: 0;
+    height: auto;
+}
+.grid:not(.flex) > * {
+    display: inline-block;
+    vertical-align: top;
+    width: calc((100% - (var(--columns, 1) - 1) * var(--column-gap, 0)) / var(--columns, 1));
+    margin-bottom: var(--row-gap, 0);
+    margin-right: calc(clamp(0, var(--columns, 1) - 1, 1) * var(--column-gap, 0));
+}
+.grid:not(.flex) > *:nth-child(5n) {
+    margin-right: calc(clamp(0, var(--columns, 1) - 5, 1) * var(--column-gap, 0));
+}
+.grid:not(.flex) > *:nth-child(4n) {
+    margin-right: calc(clamp(0, var(--columns, 1) - 4, 1) * var(--column-gap, 0));
+}
+.grid:not(.flex) > *:nth-child(3n) {
+    margin-right: calc(clamp(0, var(--columns, 1) - 3, 1) * var(--column-gap, 0));
+}
+.grid:not(.flex) > *:nth-child(2n) {
+    margin-right: calc(clamp(0, var(--columns, 1) - 2, 1) * var(--column-gap, 0));
+}
+.grid.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    column-gap: var(--column-gap, 0);
+    row-gap: var(--row-gap, 0);
+}
+.grid.flex > * {
+    flex: 0 1 calc((100% - (var(--columns, 1) - 1) * var(--column-gap, 0)) / var(--columns, 1));
+}
