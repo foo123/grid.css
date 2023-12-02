@@ -56,55 +56,171 @@
     display: inline-block;
     vertical-align: top;
     width: calc((100% - (var(--columns, 1) - 1) * var(--column-gap, 0)) / var(--columns, 1));
-    margin-bottom: var(--row-gap, 0);
+    --g-cols: calc(max(1, var(--columns, 1)));
+    --g-is1n: 0;
+    --g-is2n: 0;
+    --g-is3n: 0;
+    --g-is4n: 0;
+    --g-is5n: 0;
+    --g-is6n: 0;
+    --g-is7n: 0;
+    --g-is8n: 0;
+    --g-is9n: 0;
+    --g-is10n: 0;
+    --g-is11n: 0;
+    --g-is12n: 0;
+    --g-is13n: 0;
+    --g-is14n: 0;
+    --g-is15n: 0;
+    --g-is16n: 0;
+    --g-is17n: 0;
+    --g-is18n: 0;
+    --g-is19n: 0;
+    --g-is20n: 0;
+    --g-is1: 0;
+    --g-is2: 0;
+    --g-is3: 0;
+    --g-is4: 0;
+    --g-is5: 0;
+    --g-is6: 0;
+    --g-is7: 0;
+    --g-is8: 0;
+    --g-is9: 0;
+    --g-is10: 0;
+    --g-is11: 0;
+    --g-is12: 0;
+    --g-is13: 0;
+    --g-is14: 0;
+    --g-is15: 0;
+    --g-is16: 0;
+    --g-is17: 0;
+    --g-is18: 0;
+    --g-is19: 0;
+    --g-is20: 0;
 }
-/* handle automatically up to 15 items per row */
+/* handle automatically up to 20 items per row */
+/* abs(x) not supported, use max(x, 0 - x) instead */
 .grid:not(.flex-layout):not(.grid-layout) > * {
-    --g-is1n: calc(1 - abs(clamp(-1, var(--columns, 1) - 1, 1)));
+    --g-is1n: calc(1 - max(clamp(-1, var(--g-cols) - 1, 1), 0 - clamp(-1, var(--g-cols) - 1, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(2n) {
-    --g-is2n: calc(1 - abs(clamp(-1, var(--columns, 1) - 2, 1)));
+    --g-is2n: calc(1 - max(clamp(-1, var(--g-cols) - 2, 1), 0 - clamp(-1, var(--g-cols) - 2, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(3n) {
-    --g-is3n: calc(1 - abs(clamp(-1, var(--columns, 1) - 3, 1)));
+    --g-is3n: calc(1 - max(clamp(-1, var(--g-cols) - 3, 1), 0 - clamp(-1, var(--g-cols) - 3, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(4n) {
-    --g-is4n: calc(1 - abs(clamp(-1, var(--columns, 1) - 4, 1)));
+    --g-is4n: calc(1 - max(clamp(-1, var(--g-cols) - 4, 1), 0 - clamp(-1, var(--g-cols) - 4, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(5n) {
-    --g-is5n: calc(1 - abs(clamp(-1, var(--columns, 1) - 5, 1)));
+    --g-is5n: calc(1 - max(clamp(-1, var(--g-cols) - 5, 1), 0 - clamp(-1, var(--g-cols) - 5, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(6n) {
-    --g-is6n: calc(1 - abs(clamp(-1, var(--columns, 1) - 6, 1)));
+    --g-is6n: calc(1 - max(clamp(-1, var(--g-cols) - 6, 1), 0 - clamp(-1, var(--g-cols) - 6, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(7n) {
-    --g-is7n: calc(1 - abs(clamp(-1, var(--columns, 1) - 7, 1)));
+    --g-is7n: calc(1 - max(clamp(-1, var(--g-cols) - 7, 1), 0 - clamp(-1, var(--g-cols) - 7, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(8n) {
-    --g-is8n: calc(1 - abs(clamp(-1, var(--columns, 1) - 8, 1)));
+    --g-is8n: calc(1 - max(clamp(-1, var(--g-cols) - 8, 1), 0 - clamp(-1, var(--g-cols) - 8, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(9n) {
-    --g-is9n: calc(1 - abs(clamp(-1, var(--columns, 1) - 9, 1)));
+    --g-is9n: calc(1 - max(clamp(-1, var(--g-cols) - 9, 1), 0 - clamp(-1, var(--g-cols) - 9, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(10n) {
-    --g-is10n: calc(1 - abs(clamp(-1, var(--columns, 1) - 10, 1)));
+    --g-is10n: calc(1 - max(clamp(-1, var(--g-cols) - 10, 1), 0 - clamp(-1, var(--g-cols) - 10, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(11n) {
-    --g-is11n: calc(1 - abs(clamp(-1, var(--columns, 1) - 11, 1)));
+    --g-is11n: calc(1 - max(clamp(-1, var(--g-cols) - 11, 1), 0 - clamp(-1, var(--g-cols) - 11, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(12n) {
-    --g-is12n: calc(1 - abs(clamp(-1, var(--columns, 1) - 12, 1)));
+    --g-is12n: calc(1 - max(clamp(-1, var(--g-cols) - 12, 1), 0 - clamp(-1, var(--g-cols) - 12, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(13n) {
-    --g-is13n: calc(1 - abs(clamp(-1, var(--columns, 1) - 13, 1)));
+    --g-is13n: calc(1 - max(clamp(-1, var(--g-cols) - 13, 1), 0 - clamp(-1, var(--g-cols) - 13, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(14n) {
-    --g-is14n: calc(1 - abs(clamp(-1, var(--columns, 1) - 14, 1)));
+    --g-is14n: calc(1 - max(clamp(-1, var(--g-cols) - 14, 1), 0 - clamp(-1, var(--g-cols) - 14, 1)));
 }
 .grid:not(.flex-layout):not(.grid-layout) > *:nth-child(15n) {
-    --g-is15n: calc(1 - abs(clamp(-1, var(--columns, 1) - 15, 1)));
+    --g-is15n: calc(1 - max(clamp(-1, var(--g-cols) - 15, 1), 0 - clamp(-1, var(--g-cols) - 15, 1)));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(16n) {
+    --g-is16n: calc(1 - max(clamp(-1, var(--g-cols) - 16, 1), 0 - clamp(-1, var(--g-cols) - 16, 1)));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(17n) {
+    --g-is17n: calc(1 - max(clamp(-1, var(--g-cols) - 17, 1), 0 - clamp(-1, var(--g-cols) - 17, 1)));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(18n) {
+    --g-is18n: calc(1 - max(clamp(-1, var(--g-cols) - 18, 1), 0 - clamp(-1, var(--g-cols) - 18, 1)));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(19n) {
+    --g-is19n: calc(1 - max(clamp(-1, var(--g-cols) - 19, 1), 0 - clamp(-1, var(--g-cols) - 19, 1)));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(20n) {
+    --g-is20n: calc(1 - max(clamp(-1, var(--g-cols) - 20, 1), 0 - clamp(-1, var(--g-cols) - 20, 1)));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(1) {
+    --g-is1: 1;
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(2) {
+    --g-is2: calc(clamp(0, var(--g-cols) - 2 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(3) {
+    --g-is3: calc(clamp(0, var(--g-cols) - 3 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(4) {
+    --g-is4: calc(clamp(0, var(--g-cols) - 4 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(5) {
+    --g-is5: calc(clamp(0, var(--g-cols) - 5 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(6) {
+    --g-is6: calc(clamp(0, var(--g-cols) - 6 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(7) {
+    --g-is7: calc(clamp(0, var(--g-cols) - 7 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(8) {
+    --g-is8: calc(clamp(0, var(--g-cols) - 8 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(9) {
+    --g-is9: calc(clamp(0, var(--g-cols) - 9 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(10) {
+    --g-is10: calc(clamp(0, var(--g-cols) - 10 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(11) {
+    --g-is11: calc(clamp(0, var(--g-cols) - 11 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(12) {
+    --g-is12: calc(clamp(0, var(--g-cols) - 12 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(13) {
+    --g-is13: calc(clamp(0, var(--g-cols) - 13 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(14) {
+    --g-is14: calc(clamp(0, var(--g-cols) - 14 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(15) {
+    --g-is15: calc(clamp(0, var(--g-cols) - 15 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(16) {
+    --g-is16: calc(clamp(0, var(--g-cols) - 16 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(17) {
+    --g-is17: calc(clamp(0, var(--g-cols) - 17 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(18) {
+    --g-is18: calc(clamp(0, var(--g-cols) - 18 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(19) {
+    --g-is19: calc(clamp(0, var(--g-cols) - 19 + 1, 1));
+}
+.grid:not(.flex-layout):not(.grid-layout) > *:nth-child(20) {
+    --g-is20: calc(clamp(0, var(--g-cols) - 20 + 1, 1));
 }
 .grid:not(.flex-layout):not(.grid-layout) > * {
-    --g-is-not-on-edge: calc(1 - min(1, calc(var(--g-is1n, 0) + var(--g-is2n, 0) + var(--g-is3n, 0) + var(--g-is4n, 0) + var(--g-is5n, 0) + var(--g-is6n, 0) + var(--g-is7n, 0) + var(--g-is8n, 0) + var(--g-is9n, 0) + var(--g-is10n, 0) + var(--g-is11n, 0) + var(--g-is12n, 0) + var(--g-is13n, 0) + var(--g-is14n, 0) + var(--g-is15n, 0))));
-    margin-right: calc(var(--g-is-not-on-edge) * var(--column-gap, 0));
+    margin-top: calc(var(--row-gap, 0) * (1 - min(1, (var(--g-is1) + var(--g-is2) + var(--g-is3) + var(--g-is4) + var(--g-is5) + var(--g-is6) + var(--g-is7) + var(--g-is8) + var(--g-is9) + var(--g-is10) + var(--g-is11) + var(--g-is12) + var(--g-is13) + var(--g-is14) + var(--g-is15) + var(--g-is16) + var(--g-is17) + var(--g-is18) + var(--g-is19) + var(--g-is20)))));
+    margin-right: calc(var(--column-gap, 0) * (1 - min(1, (var(--g-is1n) + var(--g-is2n) + var(--g-is3n) + var(--g-is4n) + var(--g-is5n) + var(--g-is6n) + var(--g-is7n) + var(--g-is8n) + var(--g-is9n) + var(--g-is10n) + var(--g-is11n) + var(--g-is12n) + var(--g-is13n) + var(--g-is14n) + var(--g-is15n) + var(--g-is16n) + var(--g-is17n) + var(--g-is18n) + var(--g-is19n) + var(--g-is20n)))));
 }
