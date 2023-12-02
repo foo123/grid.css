@@ -14,6 +14,7 @@
     --columns: 4;
     --column-gap: 0;
     --row-gap: 0;
+    --g-cols: calc(max(1, var(--columns, 1)));
 }
 .grid > * {
     position: relative;
@@ -27,7 +28,7 @@
 /* using grid layout */
 .grid.grid-layout {
     display: grid;
-    grid-template-columns: repeat(var(--columns, 1), 1fr);
+    grid-template-columns: repeat(var(--g-cols), 1fr);
     grid-template-rows: auto;
     column-gap: var(--column-gap, 0);
     row-gap: var(--row-gap, 0);
@@ -48,15 +49,11 @@
     row-gap: var(--row-gap, 0);
 }
 .grid.flex-layout > * {
-    flex: 0 1 calc((100% - (var(--columns, 1) - 1) * var(--column-gap, 0)) / var(--columns, 1));
+    flex: 0 1 calc((100% - (var(--g-cols) - 1) * var(--column-gap, 0)) / var(--g-cols));
 }
 
 /* using inline-block */
 .grid:not(.flex-layout):not(.grid-layout) > * {
-    display: inline-block;
-    vertical-align: top;
-    width: calc((100% - (var(--columns, 1) - 1) * var(--column-gap, 0)) / var(--columns, 1));
-    --g-cols: calc(max(1, var(--columns, 1)));
     --g-is1n: 0;
     --g-is2n: 0;
     --g-is3n: 0;
@@ -97,6 +94,9 @@
     --g-is18: 0;
     --g-is19: 0;
     --g-is20: 0;
+    display: inline-block;
+    vertical-align: top;
+    width: calc((100% - (var(--g-cols) - 1) * var(--column-gap, 0)) / var(--g-cols));
 }
 /* handle automatically up to 20 items per row */
 /* abs(x) not supported, use max(x, 0 - x) instead */
