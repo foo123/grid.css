@@ -12,6 +12,10 @@ body {
     font-family: sans-serif;
     font-weight: 400;
 }
+.break {
+    display: none !important;
+}
+.gridlist,
 .grid {
     border: 1px solid #ccc;
 }
@@ -21,11 +25,23 @@ body {
     font-size: 20px;
     font-weight: 900;
     border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.4);
+}
+.gridlist > li {
+    text-align: center;
+    padding: 30px;
+    font-size: 20px;
+    font-weight: 900;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.4);
 }
 .grid {
     --column-gap: 10px;
     --row-gap: 20px;
     --columns: 5;
+}
+.gridlist {
+    --column-gap: 10px;
 }
 @media (max-width: 1400px) {
 .grid {
@@ -36,6 +52,9 @@ body {
 .grid {
     --columns: 3;
 }
+.gridlist {
+    --wrap: normal;
+}
 }
 @media (max-width: 600px) {
 .grid {
@@ -45,6 +64,17 @@ body {
 @media (max-width: 400px) {
 .grid {
     --columns: 1;
+}
+.gridlist {
+    --column-gap: 0;
+}
+.break {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    border: 0 !important;
+    display: block !important;
 }
 }
 </style>
@@ -93,6 +123,28 @@ body {
 <li>9</li>
 <li>10</li>
 <li>11</li>
+</ul>
+
+<ul class="gridlist">
+<li>1</li>
+<li class="break"></li>
+<li>2</li>
+<li class="break"></li>
+<li>3</li>
+<li class="break"></li>
+<li>4</li>
+<li class="break"></li>
+<li>5</li>
+<li class="break"></li>
+<li>6</li>
+<li class="break"></li>
+<li>7</li>
+<li class="break"></li>
+<li>8</li>
+<li class="break"></li>
+<li>9</li>
+<li class="break"></li>
+<li>10</li>
 </ul>
 </body>
 </html>

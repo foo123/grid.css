@@ -96,7 +96,7 @@
     --g-is20: 0;
     display: inline-block;
     vertical-align: top;
-    width: calc((100% - (var(--g-cols) - 1) * var(--column-gap, 0)) / var(--g-cols));
+    width: calc((100% - (var(--g-cols) - 1) * var(--column-gap, 0)) / (var(--g-cols) /*+ 0.01*/));
 }
 /* handle automatically up to 20 items per row */
 /* abs(x) not supported, use max(x, 0 - x) instead */
@@ -223,4 +223,33 @@
 .grid:not(.flex-layout):not(.grid-layout) > * {
     margin-top: calc(var(--row-gap, 0) * (1 - min(1, (var(--g-is1) + var(--g-is2) + var(--g-is3) + var(--g-is4) + var(--g-is5) + var(--g-is6) + var(--g-is7) + var(--g-is8) + var(--g-is9) + var(--g-is10) + var(--g-is11) + var(--g-is12) + var(--g-is13) + var(--g-is14) + var(--g-is15) + var(--g-is16) + var(--g-is17) + var(--g-is18) + var(--g-is19) + var(--g-is20)))));
     margin-right: calc(var(--column-gap, 0) * (1 - min(1, (var(--g-is1n) + var(--g-is2n) + var(--g-is3n) + var(--g-is4n) + var(--g-is5n) + var(--g-is6n) + var(--g-is7n) + var(--g-is8n) + var(--g-is9n) + var(--g-is10n) + var(--g-is11n) + var(--g-is12n) + var(--g-is13n) + var(--g-is14n) + var(--g-is15n) + var(--g-is16n) + var(--g-is17n) + var(--g-is18n) + var(--g-is19n) + var(--g-is20n)))));
+}
+.gridlist {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    list-style-type: none !important;
+    font-size: 0 !important;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    height: auto;
+    white-space: var(--wrap);
+    --wrap: nowrap;
+    --column-gap: 0;
+}
+.gridlist > * {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 1rem;
+    white-space: normal;
+    padding: 0;
+    margin: 0;
+    margin-right: var(--column-gap);
+}
+.gridlist > *:last-child {
+    margin-right: 0;
 }
