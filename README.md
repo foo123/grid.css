@@ -79,3 +79,7 @@ Grid CSS Layout: a) with display *inline-block*, b) with display *flex* and c) w
 **output**
 
 ![demo test](/screenshot.png)
+
+**see also**
+
+[responsive.css](https://github.com/foo123/responsive.css)
